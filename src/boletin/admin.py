@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Registrado
+from .forms import RegModelForm
 
 
 
@@ -9,8 +10,8 @@ class AdminRegistrado(admin.ModelAdmin):
 	list_editable=["nombre"]
 	search_fields=["email","nombre"]
 
-	class Meta:
-		model=Registrado
+	#class Meta:
+		#model=Registrado
 
 
 
