@@ -1,12 +1,17 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block head_title %} Bienvenidos | {{ block.super }} {% endblock %}
 {% block jumbotron_content %}
-        <h1>Inicio</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="bg-light p-5 rounded">
+        	<h1>Inicio</h1>
+        	<p>Fer formulario.</p>
+         	 <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Ejemplo &raquo;</a>
+     	</div>
+    </div>
+  	<div class="col-sm-6" style="background-color: black; height:300px;">
+</div>
 
 {% endblock %}
 
@@ -17,8 +22,25 @@
 
 
 {% block content %}
-<form method="POST" action="">{% csrf_token %}
-{{ el_form.as_p }}
-<input type="submit" name="Registrate"/>
-</form>
+<div class="row">
+	<div class="col-sm-3 pull-right">
+		<p class="lead">{{ titulo }}</p> 
+		<form method="POST" action="">{% csrf_token %}
+		{{ el_form|crispy }}
+		<input type="submit" name="Registrate"/>
+	</form>
+</div>
+<div class="col-sm-3">
+	<p class="lead">Creado cn Django y Bootstrap </p>
+	
+</div>
+<div class="col-sm-3">
+	<p class="lead">Creado cn Django y Bootstrap </p>
+	
+</div>
+<div class="col-sm-3">
+	<p class="lead">Creado cn Django y Bootstrap </p>
+	
+</div>
+</div>
 {% endblock %}
