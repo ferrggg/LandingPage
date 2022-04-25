@@ -38,6 +38,7 @@ def inicio(request):
 		# obj = Registrado.objects.create(email=abc, nombre=abc2)
 	return render(request,"inicio.html",context)
 def contact(request):
+	titulo = "Contactar"
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
 		form_email = form.cleaned_data.get("email")
@@ -52,5 +53,6 @@ def contact(request):
 		# 	print (key , value)
 	context = {
 	"form" : form,
+	"titulo" : form,
 	}
 	return render(request, "forms.html",context)
