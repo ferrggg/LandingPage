@@ -1,0 +1,13 @@
+body {
+  min-height: 2000px;
+}
+
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
+.navbar-default{
+  background-color: purple !important;
+  border: aqua;
+}
+
