@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block head_title %} Bienvenidos | {{ block.super }} {% endblock %}
-{% block jumbotron_content %}
+
+<style>
+{% block style %}
+
+.jumbotron {
+	background-color: wheat; !important;
+
+}
+ {% endblock %}
+</style>
+    
+
+{% block jumbotron %}
+
+<div class="jumbotron">
+<div class="container">
 <div class="row">
 	<div class="col-sm-6">
 		<div class="bg-light p-5 rounded">
@@ -10,9 +25,10 @@
          	 <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Ejemplo &raquo;</a>
      	</div>
     </div>
-  	<div class="col-sm-6" style="background-color: black; height:300px;">
+  	<div class="col-sm-6" style="background-color: black; height:315px;"><iframe width="560" height="315" src="https://www.youtube.com/embed/bO3cLmuZcKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-
+</div>
+</div>
 {% endblock %}
 
 {{ titulo }}<br/>
