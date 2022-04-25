@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'registration',
     'crispy_forms',
     'boletin',
 ]
@@ -139,3 +141,8 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "media_root")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+
+SITE_ID = 1
