@@ -19,12 +19,15 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from .views import about
+
 from boletin import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
     path('contact/', views.contact, name='contact'),
+    path('about/', about, name='about'),
 ]
 
 if settings.DEBUG:
