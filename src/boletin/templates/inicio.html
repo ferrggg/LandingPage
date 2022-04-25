@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block head_title %} Bienvenidos | {{ block.super }} {% endblock %}
+{% load static %}
 
 <style>
 {% block style %}
@@ -14,6 +15,10 @@
     
 
 {% block jumbotron %}
+
+{% if request.user.is_staff %}
+{{ queryset }}
+{% else %}
 
 <div class="jumbotron">
 <div class="container">
@@ -29,6 +34,7 @@
 </div>
 </div>
 </div>
+{% endif %}
 {% endblock %}
 
 {{ titulo }}<br/>
@@ -38,25 +44,31 @@
 
 
 {% block content %}
+{% if not request.user.is_staff %}
 <div class="row">
 	<div class="col-sm-3 pull-right">
-		<p class="lead text-align: center;">{{ titulo }}</p> 
+		{% if not user.is_authenticated %}
+		<p class="lead text-align: center;">Subscribete</p> 
 		<form method="POST" action="">{% csrf_token %}
 		{{ el_form|crispy }}
 		<input type="submit" name="Registrate"/>
-	</form>
+		</form>
+		{% else %}
+		<p class="lead text-align-center"> {{ titulo }}<br/><br/>
+		{% endif %}
 </div>
 <div class="col-sm-3">
-	<p class="lead text-align: center;">Creado cn Django y Bootstrap </p>
+	<p class="lead text-align: center;">Creado cn Django y Bootstrap <i class="fa fa-bullhorn" aria-hidden="true"></i></p>
 	
 </div>
 <div class="col-sm-3">
-	<p class="lead text-align: center;">Creado cn Django y Bootstrap </p>
+	<p class="lead text-align: center;">Framework Django </p><img src='{% static "img/coches.jpeg" %}'/>
 	
 </div>
 <div class="col-sm-3">
-	<p class="lead text-align: center;" >Creado cn Django y Bootstrap </p>
+	<p class="lead text-align: center;" >Landing Page</p>
 	
 </div>
 </div>
+{% endif %}
 {% endblock %}

@@ -8,9 +8,9 @@ from django.conf import settings
 from django.core.mail import send_mail
 
 def inicio(request):
-	titulo = "HOLA"
+	titulo = "Bienvenidos"
 	if request.user.is_authenticated:
-		titulo = "Bienvenido %s" %(request.user)
+		titulo = "Bienvenid@ %s" %(request.user)
 	form =  RegModelForm(request.POST or None)
 	context = {
 	"titulo": titulo,
@@ -36,6 +36,10 @@ def inicio(request):
 		# abc = form_data.get("email")
 		# abc2 = form_data.get("nombre")
 		# obj = Registrado.objects.create(email=abc, nombre=abc2)
+		if request.user.is_authenticated() and request.user.is_staff:
+			context = {
+			"queryset": ['abc' '123'],
+			}
 	return render(request,"inicio.html",context)
 def contact(request):
 	titulo = "Contactar"
